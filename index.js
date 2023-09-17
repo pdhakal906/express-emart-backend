@@ -12,11 +12,16 @@ const fileUpload = require('express-fileupload');
 //allows lenient querying
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb+srv://pdhakal906:moles900@cluster0.mp5chzg.mongodb.net/Emart').then((result) => {
+mongoose.connect('mongodb+srv://uname:pwd@clusterX.fkaskd.mongodb.net/Collection Name').then((result) => {
   app.listen(5000);
 }).catch((err) => {
   console.log(err)
 })
+// mongoose.connect('mongodb+srv://uname:pwd@clusterX.fkaskd.mongodb.net/Collection Name').then((result) => {
+//   app.listen(5000);
+// }).catch((err) => {
+//   console.log(err)
+// })
 
 app.use(fileUpload({
   limits: { fileSize: 5 * 1024 * 1024 },

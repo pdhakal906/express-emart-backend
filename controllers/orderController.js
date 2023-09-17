@@ -60,3 +60,38 @@ module.exports.getUserOrder = async (req, res) => {
     });
   }
 }
+
+module.exports.getOrderDetail = async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (mongoose.isValidObjectId(id)) {
+      const response = await Order.findById(id);
+      return res.status(200).json(response);
+
+    } else {
+      return res.status(400).json({
+        status: 'error',
+        message: 'provide vaild id'
+      });
+    }
+
+
+  } catch (err) {
+    return res.status(400).json({
+      status: 'error',
+      message: `${err}`
+    })
+  }
+
+}
+
+module.exports.deleteOrderById = async (req, res) => {
+  const id = req.id
+  try {
+    await Order.findOneAndDelete({
+      id
+    });
+  } catch (err) {
+
+  }
+}

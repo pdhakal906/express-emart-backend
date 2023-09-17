@@ -15,4 +15,5 @@ const orderSchema = Joi.object({
 router.get('/api/getAllOrders', userCheck.adminCheck, orderController.getAllOrders);
 router.get('/api/userOrder', userCheck.userCheck, orderController.getUserOrder);
 router.post('/api/addOrder', userCheck.userCheck, validator.body(orderSchema), orderController.addOrder)
+router.get('/api/orderDetail/:id', userCheck.userCheck, orderController.getOrderDetail)
 module.exports = router;

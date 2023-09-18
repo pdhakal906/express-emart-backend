@@ -12,6 +12,7 @@ const fileUpload = require('express-fileupload');
 //allows lenient querying
 mongoose.set('strictQuery', false);
 
+
 mongoose.connect('mongodb+srv://uname:pwd@clusterX.fkaskd.mongodb.net/Collection Name').then((result) => {
   app.listen(5000);
 }).catch((err) => {

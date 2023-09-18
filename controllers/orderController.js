@@ -86,12 +86,19 @@ module.exports.getOrderDetail = async (req, res) => {
 }
 
 module.exports.deleteOrderById = async (req, res) => {
-  const id = req.id
+  const { id } = req.params
+  console.log('hello')
   try {
-    await Order.findOneAndDelete({
-      id
-    });
-  } catch (err) {
+    await Order.findByIdAndDelete({ _id: id });
+    return res.status(201).json({
+      status: 'Success',
+      message: 'order removed successfully'
+    })
 
+  } catch (err) {
+    return res.status(400).json({
+      status: 'error',
+      message: `${err}`
+    })
   }
 }

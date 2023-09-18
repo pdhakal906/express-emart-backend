@@ -17,11 +17,6 @@ mongoose.connect('mongodb+srv://uname:pwd@clusterX.fkaskd.mongodb.net/Collection
 }).catch((err) => {
   console.log(err)
 })
-// mongoose.connect('mongodb+srv://uname:pwd@clusterX.fkaskd.mongodb.net/Collection Name').then((result) => {
-//   app.listen(5000);
-// }).catch((err) => {
-//   console.log(err)
-// })
 
 app.use(fileUpload({
   limits: { fileSize: 5 * 1024 * 1024 },

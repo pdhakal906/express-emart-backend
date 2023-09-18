@@ -19,4 +19,5 @@ router.post('/api/userLogin', validator.body(loginSchema), userController.userLo
 router.patch('/api/userUpdate', userCheck.userCheck, userController.userUpdate);
 
 
+
 module.exports = router;

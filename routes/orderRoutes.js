@@ -16,4 +16,5 @@ router.get('/api/getAllOrders', userCheck.adminCheck, orderController.getAllOrde
 router.get('/api/userOrder', userCheck.userCheck, orderController.getUserOrder);
 router.post('/api/addOrder', userCheck.userCheck, validator.body(orderSchema), orderController.addOrder)
 router.get('/api/orderDetail/:id', userCheck.userCheck, orderController.getOrderDetail)
+router.delete('/api/cancelOrder/:id', userCheck.userCheck, orderController.deleteOrderById);
 module.exports = router;
